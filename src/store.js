@@ -35,7 +35,7 @@ const store = createStore({
                     id: 'c4',
                     firstName: 'Brodie',
                     lastName: 'Gname',
-                    areas: ['frontend', 'backend'],
+                    areas: ['backend'],
                     description:
                         'I am Brodie and as a senior developer in a big tech company, I can help you get your first job or progress in your current role.',
                     hourlyRate: 30

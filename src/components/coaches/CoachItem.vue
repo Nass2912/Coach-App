@@ -33,7 +33,7 @@ export default {
       return this.firstName + " " + this.lastName;
     },
     coachContactLink() {
-      return "/coaches/" + this.id + "/contact";
+      return "/coaches/" + this.id;
     },
     viewDetails() {
       return this.$route.path + "/" + this.id;
