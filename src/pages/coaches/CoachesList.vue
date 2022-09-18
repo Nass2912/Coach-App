@@ -34,11 +34,12 @@ export default {
     return {
       activeFilters: {
         frontend: true,
-        backend: true,
+        backend: false,
         career: true,
       },
     };
   },
+
   computed: {
     filteredCoaches() {
       const coaches = this.$store.getters.coaches;
