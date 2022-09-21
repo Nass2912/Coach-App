@@ -33,6 +33,7 @@
 
 <script>
 export default {
+  emits: ["form-emit"],
   data() {
     return {
       firstName: "",
@@ -52,7 +53,9 @@ export default {
         rate: this.hourlyRate,
         areas: this.areas,
       };
-      console.log(formData);
+
+      this.$emit("form-emit", formData);
+      this.$router.replace("/coaches");
     },
   },
 };

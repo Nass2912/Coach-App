@@ -5,7 +5,9 @@
       <section>
         <div class="controls">
           <button>refresh</button>
-          <router-link to="/register">Register as Coach</router-link>
+          <router-link to="/register"
+            ><base-button>Register as Coach</base-button></router-link
+          >
         </div>
       </section>
       <ul v-if="hasCoaches">
@@ -34,7 +36,7 @@ export default {
     return {
       activeFilters: {
         frontend: true,
-        backend: false,
+        backend: true,
         career: true,
       },
     };

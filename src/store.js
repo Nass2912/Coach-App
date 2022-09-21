@@ -44,8 +44,25 @@ const store = createStore({
         }
     },
     mutations: {
+        AddToCoaches(state, payload) {
+            state.coaches.push(payload);
+        }
 
     },
+    actions: {
+        RegisterCoach(context, payload) {
+            let formData = {
+                id: 'c5',
+                firstName: payload.fname,
+                lastName: payload.lname,
+                areas: payload.areas,
+                description: payload.desc,
+                hourlyRate: payload.rate
+            }
+            context.commit('AddToCoaches', formData)
+        }
+    },
+
     getters: {
         coaches(state) {
             return state.coaches;
