@@ -40,12 +40,16 @@ const store = createStore({
                         'I am Brodie and as a senior developer in a big tech company, I can help you get your first job or progress in your current role.',
                     hourlyRate: 30
                 }
-            ]
+            ],
+            requests: []
         }
     },
     mutations: {
         AddToCoaches(state, payload) {
             state.coaches.push(payload);
+        },
+        ContactCoach(state, payload) {
+            state.requests.push(payload);
         }
 
     },
@@ -60,6 +64,15 @@ const store = createStore({
                 hourlyRate: payload.rate
             }
             context.commit('AddToCoaches', formData)
+        },
+        ContactCoach(context, payload) {
+            let data = {
+                email: payload.email,
+                message: payload.message,
+                coachId: payload.coachId,
+                id: payload.id,
+            }
+            context.commit("ContactCoach", data)
         }
     },
 
@@ -70,6 +83,19 @@ const store = createStore({
 
         hasCoaches(state) {
             return state.coaches && state.coaches.length > 0;
+        },
+
+        fetchRequests(state, getters) {
+            let coachArray = []
+            getters.coaches.forEach((coach) => {
+                coachArray.push(coach.id)
+            })
+            return state.requests.filter((request) => {
+                return coachArray.includes(request.id);
+            })
+        },
+        checker(state) {
+            return state.requests && state.requests.length > 0
         }
 
     },
