@@ -1,9 +1,22 @@
 <template>
     <div class="aligner">
         <swiper
-          :slides-per-view="3"
-          :space-between="50"
+        class="parallax-slider"
+        :navigation="{ nextEl: '.nextArrow', prevEl: '.prevArrow' }"
+        parallax
+        :slides-per-view="2.3"
+        :space-between="50"
+        grabCursor
+        @swiper="onSwiperInitialized"
         >
+            <div class="parallax-slider-navigation">
+            <div class="nav-indicator prevArrow">
+                <font-awesome-icon :icon="['fas', 'chevron-left']" />
+            </div>
+            <div class="nav-indicator nextArrow">
+                <font-awesome-icon :icon="['fas', 'chevron-right']" />
+            </div>
+            </div>
             <swiper-slide v-for="coach in filteredCoaches" :key="coach.id">
                 <CoachItem
                 :lastName="coach.lastName"
@@ -19,9 +32,11 @@
 <script>
     // Import Swiper Vue.js components
     import { Swiper, SwiperSlide } from 'swiper/vue';
+    import SwiperCore, { Navigation, Parallax } from "swiper";
     import CoachItem from "../../components/coaches/CoachItem.vue"
     // Import Swiper styles
     import 'swiper/css';
+    SwiperCore.use([Navigation, Parallax]);
     export default {
       components: {
         Swiper,

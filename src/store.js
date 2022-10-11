@@ -39,6 +39,22 @@ const store = createStore({
                     description:
                         'I am Brodie and as a senior developer in a big tech company, I can help you get your first job or progress in your current role.',
                     hourlyRate: 30
+                },               {
+                    id: 'c5',
+                    firstName: 'Brodie',
+                    lastName: 'Gname',
+                    areas: ['backend'],
+                    description:
+                        'I am Brodie and as a senior developer in a big tech company, I can help you get your first job or progress in your current role.',
+                    hourlyRate: 30
+                },               {
+                    id: 'c6',
+                    firstName: 'Brodie',
+                    lastName: 'Gname',
+                    areas: ['backend'],
+                    description:
+                        'I am Brodie and as a senior developer in a big tech company, I can help you get your first job or progress in your current role.',
+                    hourlyRate: 30
                 }
             ],
             requests: []
